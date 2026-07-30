@@ -18,13 +18,6 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-
-    -- Import your custom plugin specs
-    -- CONDITIONAL: If we are inside Cursor/VSCode, skip loading heavy custom plugins
-    cond = function()
-      return not vim.g.vscode
-    end,
-
     -- import/override with your plugins
     { import = "plugins" },
   },
@@ -47,9 +40,9 @@ require("lazy").setup({
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
+        -- "matchit",
+        -- "matchparen",
+        -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

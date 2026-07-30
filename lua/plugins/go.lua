@@ -6,7 +6,7 @@ return {
         gopls = {
           settings = {
             gopls = {
-              gofumpt = true,
+              gofmt = true,
               usePlaceholders = true,
               completeUnimported = true,
               staticcheck = true,
@@ -17,17 +17,6 @@ return {
             },
           },
         },
-      },
-    },
-  },
-
-  {
-    "mfussenegger/nvim-dap",
-    optional = true,
-    dependencies = {
-      {
-        "leoluz/nvim-dap-go",
-        opts = {},
       },
     },
   },
