@@ -1,16 +1,28 @@
 return {
   {
-    "ellisonleao/gruvbox.nvim",
+    "tiagovla/tokyodark.nvim",
+    lazy = false,
     priority = 1000,
     opts = {
-      contrast = "hard",
-      transparent_mode = false,
+      transparent_background = false,
+      gamma = 1.00,
+
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        identifiers = { italic = true },
+        functions = {},
+        variables = {},
+      },
+
+      terminal_colors = true,
     },
   },
+
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox",
+      colorscheme = "tokyodark",
     },
   },
 }
