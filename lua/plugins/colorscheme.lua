@@ -1,85 +1,46 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "Mofiqul/vscode.nvim",
+    lazy = false,
     priority = 1000,
+
     opts = {
-      flavour = "mocha", -- latte, frappe, macchiato, mocha
-      background = {
-        light = "latte",
-        dark = "mocha",
-      },
-      transparent_background = false,
-      term_colors = true,
-      integrations = {
-        blink_cmp = true,
-        dashboard = true,
-        flash = true,
-        gitsigns = true,
-        illuminate = true,
-        indent_blankline = {
-          enabled = true,
-          scope_color = "lavender",
-          colored_indent_levels = false,
-        },
-        lazy = true,
-        mason = true,
-        native_lsp = {
-          enabled = true,
-          underlines = {
-            errors = { "undercurl" },
-            hints = { "undercurl" },
-            warnings = { "undercurl" },
-            information = { "undercurl" },
-          },
-        },
-        neotree = true,
-        noice = true,
-        notify = true,
-        semantic_tokens = true,
-        snacks = true,
-        telescope = {
-          enabled = true,
-        },
-        treesitter = true,
-        treesitter_context = true,
-        which_key = true,
-      },
+      -- Force VS Code Dark only.
+      style = "dark",
+
+      -- Opaque editor background.
+      transparent = false,
+
+      -- VS Code-like comments.
+      italic_comments = true,
+
+      -- Italic LSP inlay hints.
+      italic_inlayhints = true,
+
+      -- Underline links in markup/markdown.
+      underline_links = true,
+
+      -- Keep explorer background consistent.
+      disable_nvimtree_bg = false,
+
+      -- Apply theme colors to :terminal.
+      terminal_colors = true,
     },
+
+    config = function(_, opts)
+      -- Prevent Neovim from selecting the light variant.
+      vim.o.background = "dark"
+
+      opts.style = "dark"
+
+      require("vscode").setup(opts)
+    end,
   },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "vscode",
     },
   },
 }
--- return {
---   {
---     "tiagovla/tokyodark.nvim",
---     lazy = false,
---     priority = 1000,
---     opts = {
---       transparent_background = false,
---       gamma = 1.00,
---
---       styles = {
---         comments = { italic = true },
---         keywords = { italic = true },
---         identifiers = { italic = true },
---         functions = {},
---         variables = {},
---       },
---
---       terminal_colors = true,
---     },
---   },
---
---   {
---     "LazyVim/LazyVim",
---     opts = {
---       colorscheme = "tokyodark",
---     },
---   },
--- }
