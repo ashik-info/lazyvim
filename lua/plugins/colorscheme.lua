@@ -1,46 +1,82 @@
 return {
   {
-    "Mofiqul/vscode.nvim",
+    "tiagovla/tokyodark.nvim",
     lazy = false,
     priority = 1000,
 
     opts = {
-      -- Force VS Code Dark only.
-      style = "dark",
+      -- Keep editor background opaque.
+      transparent_background = false,
 
-      -- Opaque editor background.
-      transparent = false,
+      -- Theme brightness.
+      -- 1.00 = default
+      -- < 1.00 = darker
+      -- > 1.00 = brighter
+      gamma = 1.00,
 
-      -- VS Code-like comments.
-      italic_comments = true,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
+        identifiers = { italic = true },
+        functions = {},
+        variables = {},
+      },
 
-      -- Italic LSP inlay hints.
-      italic_inlayhints = true,
-
-      -- Underline links in markup/markdown.
-      underline_links = true,
-
-      -- Keep explorer background consistent.
-      disable_nvimtree_bg = false,
-
-      -- Apply theme colors to :terminal.
+      -- Apply the theme colors to :terminal.
       terminal_colors = true,
+
+      -- Optional custom highlight overrides.
+      highlights = function(colors)
+        return {
+          -- Cursor line
+          CursorLine = {
+            bg = colors.bg_highlight,
+          },
+
+          -- Line numbers
+          LineNr = {
+            fg = colors.comment,
+          },
+
+          CursorLineNr = {
+            fg = colors.orange,
+            bold = true,
+          },
+
+          -- Floating windows
+          NormalFloat = {
+            bg = colors.bg,
+          },
+
+          FloatBorder = {
+            fg = colors.blue,
+            bg = colors.bg,
+          },
+
+          -- Search
+          Search = {
+            fg = colors.bg,
+            bg = colors.orange,
+          },
+
+          IncSearch = {
+            fg = colors.bg,
+            bg = colors.yellow,
+          },
+
+          -- Visual selection
+          Visual = {
+            bg = colors.bg_highlight,
+          },
+        }
+      end,
     },
-
-    config = function(_, opts)
-      -- Prevent Neovim from selecting the light variant.
-      vim.o.background = "dark"
-
-      opts.style = "dark"
-
-      require("vscode").setup(opts)
-    end,
   },
 
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "vscode",
+      colorscheme = "tokyodark",
     },
   },
 }

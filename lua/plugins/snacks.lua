@@ -28,8 +28,8 @@ return {
               preset = "sidebar",
               -- The sidebar preset defaults to 40 columns; keep it 15% narrower.
               layout = {
-                width = 25,
-                min_width = 25,
+                width = 35,
+                min_width = 35,
               },
             },
           },
