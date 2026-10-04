@@ -69,7 +69,7 @@ require("lazy").setup({
   defaults = {
     -- Only LazyVim plugins are lazy-loaded by default.
     -- Custom plugins load during startup unless configured otherwise.
-    lazy = false,
+    lazy = true,
 
     -- Use the latest plugin commit instead of potentially outdated releases.
     version = false,
@@ -78,7 +78,6 @@ require("lazy").setup({
   install = {
     colorscheme = {
       "gruvbox",
-      "tokyonight",
     },
   },
 
@@ -90,14 +89,14 @@ require("lazy").setup({
   performance = {
     rtp = {
       disabled_plugins = {
-        -- "gzip",
-        -- "matchit",
+        "gzip",
+        "matchit",
         -- "matchparen",
         -- "netrwPlugin",
         -- "tarPlugin",
-        -- "tohtml",
-        -- "tutor",
-        -- "zipPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
       },
     },
   },

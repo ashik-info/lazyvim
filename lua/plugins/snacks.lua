@@ -12,7 +12,7 @@ return {
           explorer = {
             -- Keep Explorer alive when switching back to editor.
             auto_close = false,
-
+            -- diagonostics = false,
             -- Explorer normally works from the list window.
             focus = "list",
 
