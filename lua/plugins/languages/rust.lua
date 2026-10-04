@@ -1,16 +1,4 @@
 return {
-  -- Rust syntax / Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "rust",
-        "ron",
-        "toml",
-      },
-    },
-  },
-
   -- Rust LSP
   {
     "neovim/nvim-lspconfig",

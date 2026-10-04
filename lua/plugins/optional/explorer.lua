@@ -50,6 +50,10 @@ return {
     },
 
     init = function()
+      if not require("config.features").explorer_open_on_start then
+        return
+      end
+
       -- Automatically open Explorer after LazyVim startup.
       vim.api.nvim_create_autocmd("User", {
         pattern = "VeryLazy",

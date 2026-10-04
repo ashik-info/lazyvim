@@ -6,7 +6,6 @@ return {
         gopls = {
           settings = {
             gopls = {
-              gofmt = true,
               usePlaceholders = true,
               completeUnimported = true,
               staticcheck = true,

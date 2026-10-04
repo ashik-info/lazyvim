@@ -28,47 +28,19 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-    -------------------------------------------------------------------------
-    -- 1. LazyVim core must be first
-    -------------------------------------------------------------------------
-
+    -- LazyVim loads enabled extras from lazyvim.json.
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
     },
-
-    -------------------------------------------------------------------------
-    -- 2. LazyVim extras must come after the core import
-    -------------------------------------------------------------------------
-
-    {
-      import = "lazyvim.plugins.extras.lang.typescript",
-    },
-
-    {
-      import = "lazyvim.plugins.extras.lang.json",
-    },
-
-    {
-      import = "lazyvim.plugins.extras.editor.telescope",
-    },
-
-    {
-      import = "lazyvim.plugins.extras.ui.mini-starter",
-    },
-
-    -------------------------------------------------------------------------
-    -- 3. Custom plugin specs must be last
-    -------------------------------------------------------------------------
-
     {
       import = "plugins",
     },
   },
 
   defaults = {
-    -- Only LazyVim plugins are lazy-loaded by default.
-    -- Custom plugins load during startup unless configured otherwise.
+    -- New plugins need a load trigger (event, command, filetype, or key).
+    -- Overrides inherit the trigger from LazyVim's plugin spec.
     lazy = true,
 
     -- Use the latest plugin commit instead of potentially outdated releases.
