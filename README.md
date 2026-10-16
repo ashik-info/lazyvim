@@ -1,6 +1,6 @@
 # Neovim configuration
 
-This is a [LazyVim](https://lazyvim.github.io/) configuration with Gruvbox, Telescope, blink.cmp, Snacks Explorer, and local overrides for TypeScript, Go, Rust, Python, Docker, SQL, Protocol Buffers, and GraphQL.
+This is a [LazyVim](https://lazyvim.github.io/) configuration with local Oxocarbon, Telescope, blink.cmp, Snacks Explorer, and local overrides for TypeScript, Go, Rust, Python, Docker, SQL, Protocol Buffers, and GraphQL.
 
 ## Setup
 
@@ -16,6 +16,9 @@ Put this repository at `~/.config/nvim` and run `nvim`. The first launch install
 | `lua/config/options.lua` | Editor choices that must be set before plugins load. |
 | `lua/config/features.lua` | Switches for optional local features. |
 | `lua/config/lazy.lua` | lazy.nvim bootstrap and shared defaults. |
+| `colors/oxocarbon.lua` | Entry point for `:colorscheme oxocarbon`. |
+| `lua/oxocarbon/` | Local theme highlights, palette, and color utilities. |
+| `lua/lualine/themes/oxocarbon.lua` | Matching statusline theme. |
 | `lua/plugins/init.lua` | Imports the core, editor, language, and enabled optional specs. |
 | `lua/plugins/{core,editor,languages,optional}/` | Plugin specs and overrides, grouped by purpose. |
 

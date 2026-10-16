@@ -5,10 +5,10 @@ local function check()
   local plugins = config.plugins
 
   assert(not config.spec.errors or #config.spec.errors == 0, vim.inspect(config.spec.errors))
-  assert(vim.g.colors_name == "gruvbox", "Gruvbox did not load")
+  assert(vim.g.colors_name == "oxocarbon", "Oxocarbon did not load")
   assert(vim.g.lazyvim_picker == "telescope", "Telescope is not the active picker")
 
-  for _, name in ipairs({ "gruvbox.nvim", "telescope.nvim", "blink.cmp", "nvim-treesitter", "nvim-lspconfig" }) do
+  for _, name in ipairs({ "telescope.nvim", "blink.cmp", "nvim-treesitter", "nvim-lspconfig" }) do
     assert(plugins[name], name .. " is missing")
   end
 

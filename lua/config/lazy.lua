@@ -49,7 +49,7 @@ require("lazy").setup({
 
   install = {
     colorscheme = {
-      "gruvbox",
+      "oxocarbon",
     },
   },
 
