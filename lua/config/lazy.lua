@@ -49,6 +49,7 @@ require("lazy").setup({
 
   install = {
     colorscheme = {
+      "cendre",
       "oxocarbon",
     },
   },
