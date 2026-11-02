@@ -1,10 +1,10 @@
 # Neovim configuration
 
-This is a [LazyVim](https://lazyvim.github.io/) configuration with local Oxocarbon, Telescope, blink.cmp, Snacks Explorer, and local overrides for TypeScript, Go, Rust, Python, Docker, SQL, Protocol Buffers, and GraphQL.
+This is a [LazyVim](https://lazyvim.github.io/) configuration with local Oxocarbon, Telescope, blink.cmp, Snacks Explorer, and local overrides for TypeScript, Go, Rust, Python, Dart and Flutter, Docker, SQL, Protocol Buffers, and GraphQL.
 
 ## Setup
 
-Install Neovim 0.11.2 or newer with LuaJIT, Git, ripgrep, and a C compiler for Treesitter parsers. A Nerd Font improves icons. `lazygit` is needed for the `<leader>gg` shortcut. Node.js is needed for GraphQL and Prettier; the Rust toolchain supplies `rustfmt`. Language servers and other tools can be installed through `:Mason` after startup.
+Install Neovim 0.11.2 or newer with LuaJIT, Git, ripgrep, and a C compiler for Treesitter parsers. A Nerd Font improves icons. `lazygit` is needed for the `<leader>gg` shortcut. Node.js is needed for GraphQL and Prettier; the Rust toolchain supplies `rustfmt`. Language servers and other tools can be installed through `:Mason` after startup. Dart and Flutter support requires the Flutter SDK (including `dart`) on your PATH; install a device or emulator to run Flutter apps.
 
 Put this repository at `~/.config/nvim` and run `nvim`. The first launch installs lazy.nvim and the enabled plugins. Run `:checkhealth` if a feature is missing, and `:Lazy` to inspect plugin installation or load state. Plugin versions are recorded in `lazy-lock.json`.
 
@@ -23,6 +23,8 @@ Put this repository at `~/.config/nvim` and run `nvim`. The first launch install
 | `lua/plugins/{core,editor,languages,optional}/` | Plugin specs and overrides, grouped by purpose. |
 
 The enabled extras are TypeScript, JSON, Telescope, and mini.starter. Local specs add or adjust the theme, completion, explorer, formatting, language servers, Treesitter parsers, database tools, and Git UI.
+
+Dart and Flutter support uses flutter-tools.nvim for the Dart language server and commands such as `:FlutterRun`, `:FlutterDevices`, `:FlutterReload`, and `:FlutterCommands`. Dart files are formatted with `dart format`.
 
 The formatting module uses Conform with Go imports, Black for Python, rustfmt for Rust, and Prettier for web files. The Proto module uses the Buf CLI for `.proto` completion, diagnostics, navigation, and formatting; it also recognizes Buf configuration files. The GraphQL module adds syntax, completion, diagnostics, and Prettier formatting. GraphQL language services require a project GraphQL config and the `graphql` package. Inspect `:ConformInfo` and `:LspInfo` when a formatter or server does not attach.
 
@@ -64,4 +66,4 @@ From this directory, run:
 nvim -i NONE --headless -c 'luafile scripts/smoke.lua' -c 'qa!'
 ```
 
-The check verifies that the resolved plugin set, theme, picker, formatter and server specs, parser list, filetypes, and keymaps are coherent. For a manual check after changing language specs, open representative Go, Rust, TypeScript, Python, Dockerfile, SQL, `.proto`, and `.graphql` files; inspect `:LspInfo`, `:Mason`, `:ConformInfo`, completion, diagnostics, and formatting. Python uses Pyright and flake8; shell files use shellcheck and shfmt. Formatting falls back to an LSP when no configured formatter is available.
+The check verifies that the resolved plugin set, theme, picker, formatter and server specs, parser list, filetypes, and keymaps are coherent. For a manual check after changing language specs, open representative Go, Rust, TypeScript, Python, Dart, Dockerfile, SQL, `.proto`, and `.graphql` files; inspect `:LspInfo`, `:Mason`, `:ConformInfo`, completion, diagnostics, and formatting. Python uses Pyright and flake8; shell files use shellcheck and shfmt. Formatting falls back to an LSP when no configured formatter is available.

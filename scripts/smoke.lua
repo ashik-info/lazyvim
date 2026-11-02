@@ -12,6 +12,8 @@ local function check()
     assert(plugins[name], name .. " is missing")
   end
 
+  assert(plugins["flutter-tools.nvim"], "Flutter Tools is missing")
+
   assert((plugins["vim-dadbod-ui"] ~= nil) == features.database, "database feature mismatch")
   assert((plugins["lazygit.nvim"] ~= nil) == features.lazygit, "LazyGit feature mismatch")
 
@@ -21,7 +23,7 @@ local function check()
     assert(not seen[parser], "duplicate Treesitter parser: " .. parser)
     seen[parser] = true
   end
-  for _, parser in ipairs({ "go", "gosum", "rust", "ron", "dockerfile", "proto", "graphql" }) do
+  for _, parser in ipairs({ "go", "gosum", "rust", "ron", "dockerfile", "proto", "graphql", "dart" }) do
     assert(seen[parser], parser .. " parser is missing")
   end
 
@@ -37,6 +39,7 @@ local function check()
     rust = "rustfmt",
     proto = "buf",
     graphql = "prettier",
+    dart = "dart_format",
   }) do
     assert(vim.tbl_contains(formatters[filetype] or {}, formatter), filetype .. " formatter is missing")
   end
